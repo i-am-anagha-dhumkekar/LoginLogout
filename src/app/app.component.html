@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <div class="logo-img">
+                    <img class="img-fluid" src="../assets/img/logo.jpg" alt="">
+                </div>&nbsp;
+                <a href="#" class="navbar-brand">Nissan</a>
+            
+                <!-- Menu -->
+                <ul class="navbar-nav mr-auto" routerLinkActive="active">
+                    <li class="nav-item active">
+                        <a href="/home" class="nav-link" routerLink="home">Home</a>
+                    </li>
+                </ul>
+
+                <!-- SignUp -->
+                <ul class="navbar-nav mr-auto" *ngIf="!loginService.isLogged">
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link" routerLink="login">Log In</a>
+                    </li>
+                </ul>
+                <!-- LogOut -->
+                <ul class="navbar-nav mr-auto" *ngIf="loginService.isLogged">
+                    <li class="nav-item">
+                        <a href="" class="nav-link" (click)="logOut()">Log out</a>
+                    </li>
+                </ul>
+            </nav>
+            <hr>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <span class="container">
+            All rights reserved
+            <a style="text-decoration: none;color: black;" href="http://anaghadhumkekar.me/Portfolio-Site/">@Anagha</a>
+        </span>
+    </div>
+</div>
+

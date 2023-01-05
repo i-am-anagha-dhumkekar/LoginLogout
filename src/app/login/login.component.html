@@ -1,0 +1,48 @@
+<!-- Reactive Form -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="../../assets/img/undraw_access_account_re_8spm.svg" class="img-fluid" width="80%">
+        </div>
+        <div class="form-group col-md-7">
+            <!-- Reactive Form -->
+            <h3>Login</h3>
+            <hr>
+            <form [formGroup]="loginForm" (ngSubmit)="loginCredential()">
+                <!-- emailId -->
+                <div>
+                    <input type="text" placeholder="Enter login email id"
+                    formControlName="emailId" autocomplete="off" required class="form-control">
+                </div>
+                <div *ngIf="isSubmitted && formControls.emailId.errors">
+                    <div *ngIf="formControls.emailId.errors.required" class="loginError">
+                        Login emailId is required! 
+                    </div>
+                </div>
+                <br>
+                <!-- password -->
+                <div>
+                    <input type="password" placeholder="Enter login password"
+                    formControlName="password" autocomplete="off" required class="form-control">
+                </div>
+                <div *ngIf="isSubmitted && formControls.password.errors">
+                    <div *ngIf="formControls.password.errors.required" class="loginError">
+                        Password is required! 
+                    </div>
+                </div>
+                <br>
+                <!-- Submit -->
+                <div>
+                    <button type="submit" class="btn btn-dark btn-md">
+                        <i class="fa fa-sign-in"></i>
+                        Login
+                    </button>
+                </div>
+                <!-- Displaying -->
+                <div *ngIf="error" class="loginError">
+                    {{error}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
