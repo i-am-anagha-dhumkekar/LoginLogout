@@ -21,6 +21,7 @@ export class AppComponent {
   }*/
   //method for logout
   logOut():void{
-    this.router.navigateByUrl('');
+    this.loginService.logOut();
+    this.router.navigateByUrl('/login');
   }
 }

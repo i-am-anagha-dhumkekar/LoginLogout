@@ -22,4 +22,10 @@ export class LoginService {
     console.log("Attempt authenticate and authorize");
     return this.httpCLient.post(environment.apiUrl+"/api/login",loginUser);
   }
+  //SignOut
+  public logOut(){
+    localStorage.removeItem("USERNAME");
+    localStorage.removeItem("ACCESS_ROLE");
+    localStorage.removeItem("JWT_TOKEN");
+  }
 }

@@ -64,11 +64,18 @@ export class LoginComponent implements OnInit {
           if(this.jwtResponse.data.role===1)
           {
             this.loginService.isLogged=true;
+            //session Management --localStorage
+            localStorage.setItem("USERNAME",this.jwtResponse.data.emailId);
+            localStorage.setItem("ACCESS_ROLE",this.jwtResponse.data.role);
+            localStorage.setItem("JWT_TOKEN",this.jwtResponse.data.accessToken);
             this.router.navigateByUrl('/admin');
           }
           else if(this.jwtResponse.data.role===3)
           {
             this.loginService.isLogged=true;
+            localStorage.setItem("USERNAME",this.jwtResponse.data.emailId);
+            localStorage.setItem("ACCESS_ROLE",this.jwtResponse.data.role);
+            localStorage.setItem("JWT_TOKEN",this.jwtResponse.data.accessToken);
             this.router.navigateByUrl('/manager');
           }
           else{
